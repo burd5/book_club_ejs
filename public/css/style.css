@@ -1,10 +1,142 @@
+/*    General    */
+body{
+    background: #fff;
+}
+
+.login-p{
+    margin-top: 10px !important;
+    font-size: 18px;
+}
+
+.err-msg {
+	padding: 10px 15px;
+	background-color: #fff;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	color: red;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/*    Headers     */
+
+.collapsible-header{
+    border: 1px solid teal;
+    border-bottom: none;
+}
+
+/*   Forms   */
+.login-container{
+    width: 600px;
+    margin-top: 100px;
+    text-align: center;
+}
+input{
+    margin-bottom: 10px;
+}
+
+.button{
+    width: 120px;
+    height: 55px;
+    background-color: rgb(28,17,47);
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+li{
+    font-size: 22px;
+}
+
 h1{
+    color: rgb(6,27,55);
+}
+
+.alert{
     color: red;
+    font-size: 16px;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+/*    Login    */
+.card{
+    background-color: #fff;
+    border: 3px solid rgb(97,210,164);
 }
-.not{
-    text-decoration: underline;
+
+.card h3, .card li{
+    color: rgb(28,17,47);
+}
+
+::placeholder{
+    color: rgb(28,17,47);
+    font-size: 18px;
+}
+
+.section a{
+    margin-bottom: 10px;
+    width: 350px;
+}
+
+span{
+    font-size: 18px;
+}
+/*   Tables    */
+th{
+    color: white;
+    background: rgb(28,17,47);
+}
+
+tr{
+    border-top: 2px solid rgb(102,124,137);
+    border-bottom: 2px solid rgb(102,124,137);
+    font-size: 16px;
+}
+
+tr:hover{
+    background: rgb(97,210,164) !important;
+    color: white;
+}
+
+td{
+    padding: 20px 5px 20px 10px;
+}
+
+td img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+table{
+    margin-bottom: 80px;
+}
+
+/*    Side-Nav   */
+.container > .brand-logo, .sidenav-trigger{
+    color: rgb(28,17,47);
+}
+
+.sidenav li{
+    margin-bottom: 20px;
+}
+
+.sidenav li:first-of-type{
+    margin-top: 10px;
+}
+
+i{
+    margin-right: 10px;
+}
+
+/*    Profile.hbs    */
+#profile{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+#profile-img{
+    margin-right: 25px;
+}
+.collapsible-header{
+    padding-left: 30px;
 }

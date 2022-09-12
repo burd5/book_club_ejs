@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Feed</title>
+</head>
+<body>
+    <nav class="header-theme teal accent-3">
+        <div class="nav-wrapper container">
+    
+            <a href="/dashboard" class="brand-logo left">Book Club</a>
+            <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>-->
+            <ul class="right hide-on-med-and-down"id="mobile-demo">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/readingList">Reading List</a></li>
+                <li><a href="/favorites">Favorites</a></li>
+                <li><a href="/community">Community Feed</a></li>
+                <li><a href="/friends">Find Friends</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+<div class="container">
+<h1>Community Feed</h1>
+<table id="table" class="highlight responsive-table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Book Title</th>
+            <th>Author Name</th>
+            <th>Rating</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(let i=0; i < books.length; i++) {%>
+            <tr class="book">
+                <th><%= books[i].title %></th>
+                <th><%= books[i].author %></th>
+                <th><%= books[i].rating %></th>
+                <th><span class='fa fa-trash'></span></th>
+            </tr>
+            <% } %>
+    </tbody>
+</table>
+</div>
+</div>
+<div class="fixed-action-btn">
+<a href="/bookForm" class="btn-floating btn-large waves-effect waves-light teal accent-3"><i class="fas fa-plus"></i></a>
+</div>

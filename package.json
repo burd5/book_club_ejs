@@ -1,10 +1,11 @@
 {
   "name": "todo-mvc-auth-local",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Simple ToDo App is built using the MVC Architecture, we have also implemented \"authorization\" so folx can sign up, customize & personalize the app",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -24,5 +25,17 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
-  }
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burd5/todo-mvc-auth-local.git"
+  },
+  "bugs": {
+    "url": "https://github.com/burd5/todo-mvc-auth-local/issues"
+  },
+  "homepage": "https://github.com/burd5/todo-mvc-auth-local#readme"
 }

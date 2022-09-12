@@ -1,12 +1,13 @@
 const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
+const Books = require('../models/Books')
 
  exports.getLogin = (req, res) => {
     if (req.user) {
-      return res.redirect('/todos')
+      return res.redirect('/dashboard')
     }
-    res.render('login', {
+    res.render('/login', {
       title: 'Login'
     })
   }
@@ -18,7 +19,7 @@ const User = require('../models/User')
   
     if (validationErrors.length) {
       req.flash('errors', validationErrors)
-      return res.redirect('/login')
+      return res.redirect('/')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
   
@@ -26,12 +27,13 @@ const User = require('../models/User')
       if (err) { return next(err) }
       if (!user) {
         req.flash('errors', info)
-        return res.redirect('/login')
+        return res.redirect('/')
       }
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/todos')
+        const bookItems = Books.find({user:req.user.id})
+        res.render('dashboard', {user: req.user.id, userName: req.user.userName, books: bookItems})
       })
     })(req, res, next)
   }
@@ -46,9 +48,6 @@ const User = require('../models/User')
   }
   
   exports.getSignup = (req, res) => {
-    if (req.user) {
-      return res.redirect('/todos')
-    }
     res.render('signup', {
       title: 'Create Account'
     })
@@ -87,7 +86,7 @@ const User = require('../models/User')
           if (err) {
             return next(err)
           }
-          res.redirect('/todos')
+          res.render('/dashboard')
         })
       })
     })
