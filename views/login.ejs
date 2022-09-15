@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://media1.giphy.com/media/xT77Y1T0zY1gR5qe5O/200w.gif?cid=82a1493bzq3ww177qgswqw4kb450ezil9ejclmzt47kj7gn5&rid=200w.gif&ct=g">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
@@ -12,7 +13,7 @@
 <body>
 <div class="section">
     <div class="container login-container">
-        <div class="card">
+        <div class="card  yellow lighten-5">
             <h3><i class="fa-solid fa-book-open"></i> Book Club</h3>
             <% if (locals.messages.errors) { %>
                 <% messages.errors.forEach( el => { %>
@@ -28,7 +29,7 @@
                 <form action="/login" method="POST">
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
-                    <input type="submit" value="Sign-In" class="button">
+                    <input type="submit" value="Sign-In" class="button teal lighten-3">
                 </form>
                 <p class="login-p">Don't have an account? <a href="/signup">Register</a></p>
             </div>

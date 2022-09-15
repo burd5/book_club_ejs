@@ -1,44 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading List</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
-</head>
-<body>
-    <nav class="header-theme teal accent-3">
-        <div class="nav-wrapper container">
-    
-            <a href="/dashboard" class="brand-logo left">Book Club</a>
-            <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>-->
-            <ul class="right hide-on-med-and-down"id="mobile-demo">
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/readingList">Reading List</a></li>
-                <li><a href="/favorites">Favorites</a></li>
-                <li><a href="/community">Community Feed</a></li>
-                <li><a href="/friends">Find Friends</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
+<%- include('partials/header') -%>
     <h1>Friends</h1>
+    <input type="text" placeholder="Search for friends"></input>
+    
+    <h2>Other Users (<%= user.length %>)</h2>
+
+
+    <div class="profile-cards">
+        <% for(let i=0; i < user.length; i++) {%>
+        <ul class="friends">
+            <div class="card">
+                <li><%= user[i].img.data %></li>
+                <li><a href="#"><%= user[i].userName %></a></li>
+                <form class="col-1" action="" method="POST">
+                    <button class="btn light-blue darken-4" type="submit">Connect</button>
+                </form>
+            </div>
+        </ul>
+        <% } %>
     </div>
     <div class="fixed-action-btn">
         <a href="/bookForm" class="btn-floating btn-large waves-effect waves-light teal accent-3"><i class="fas fa-plus"></i></a>

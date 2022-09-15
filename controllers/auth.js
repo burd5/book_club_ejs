@@ -3,16 +3,16 @@ const validator = require('validator')
 const User = require('../models/User')
 const Books = require('../models/Books')
 
- exports.getLogin = (req, res) => {
+module.exports = {
+  getLogin: (req, res) => {
     if (req.user) {
       return res.redirect('/dashboard')
     }
     res.render('/login', {
       title: 'Login'
     })
-  }
-  
-  exports.postLogin = (req, res, next) => {
+  },
+  postLogin: async (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
@@ -29,31 +29,31 @@ const Books = require('../models/Books')
         req.flash('errors', info)
         return res.redirect('/')
       }
-      req.logIn(user, (err) => {
+      req.logIn(user, async (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        const bookItems = Books.find({user:req.user.id})
-        res.render('dashboard', {user: req.user.id, userName: req.user.userName, books: bookItems})
+        const bookItems = await Books.find({user:req.user.id}).sort({rating: -1})
+        res.render('dashboard.ejs', {userName: req.user.userName, books: bookItems, user: req.user.id})
       })
     })(req, res, next)
-  }
+  },
   
-  exports.logout = (req, res) => {
+  logout: (req, res) => {
     req.logout()
     req.session.destroy((err) => {
       if (err) console.log('Error : Failed to destroy the session during logout.', err)
       req.user = null
       res.redirect('/')
     })
-  }
+  },
   
-  exports.getSignup = (req, res) => {
+  getSignup: (req, res) => {
     res.render('signup', {
       title: 'Create Account'
     })
-  }
+  },
   
-  exports.postSignup = (req, res, next) => {
+  postSignup: (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
@@ -91,3 +91,4 @@ const Books = require('../models/Books')
       })
     })
   }
+}

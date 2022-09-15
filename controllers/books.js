@@ -41,11 +41,12 @@ module.exports = {
         }
     },
     deleteBook: async (req, res)=>{
-        console.log(req.body.bookIdFromJSFile)
         try{
-            await Books.findOneAndDelete({_id:req.body.bookIdFromJSFile})
+            //Find book by id
+            let book = await Books.findById({id: req.books.id})
+            await Books.findOneAndDelete({book});
             console.log('Deleted Book')
-            res.json('Deleted It')
+            res.redirect('/dashboard')
         }catch(err){
             console.log(err)
         }

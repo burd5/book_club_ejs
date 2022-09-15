@@ -11,6 +11,6 @@ router.put('/markComplete', booksController.markComplete)
 
 router.put('/markIncomplete', booksController.markIncomplete)
 
-router.delete('/deleteBook', booksController.deleteBook)
+router.delete('/deleteBook/:id', booksController.deleteBook)
 
 module.exports = router
