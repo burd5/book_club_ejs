@@ -1,6 +1,13 @@
 /*    General    */
+body{
+    font-family: 'Source Code Pro', monospace;
+}
 li{
     list-style: none;
+}
+
+h1{
+    font-size: 40px;
 }
 
 /*    Errors    */
@@ -16,6 +23,9 @@ li{
 
 /*    Headers     */
 
+.nav-titles a{
+    font-size: 18px;
+}
 
 
 /*   Forms   */
@@ -72,12 +82,21 @@ li{
 table{
     margin: 40px 0px;
     background-color: white;
+    border-radius: 10px;
 }
 
 td:first-child,th:first-child{
     padding-left: 30px;
 }
 
+th{
+    font-size: 24px;
+}
+
+td{
+    font-size: 20px;
+    padding-left: 10px;
+}
 /*    Modals    */
 
 .modal{
