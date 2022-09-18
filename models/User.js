@@ -9,7 +9,10 @@ const UserSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     },
-  password: String
+  password: String,
+  friends: {
+    type: Array,
+  }
 })
 
 

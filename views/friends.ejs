@@ -12,12 +12,10 @@
                 <li><%= user[i].img.data %></li>
                 <li><a href="#"><%= user[i].userName %></a></li>
                 <form class="col-1" action="" method="POST">
-                    <button class="btn light-blue darken-4" type="submit">Connect</button>
+                    <button class="btn light-blue darken-4" type="submit">Follow</button>
                 </form>
             </div>
         </ul>
         <% } %>
     </div>
-    <div class="fixed-action-btn">
-        <a href="/bookForm" class="btn-floating btn-large waves-effect waves-light teal accent-3"><i class="fas fa-plus"></i></a>
-    </div>
+<%- include('partials/footer') -%>

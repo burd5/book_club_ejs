@@ -11,7 +11,6 @@ li{
 	border-radius: 8px;
 	margin-bottom: 15px;
 	color: red;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -26,22 +25,19 @@ li{
     margin-top: 100px;
     text-align: center;
 }
-input{
-    margin-bottom: 10px;
+
+.login-body{
+    background-image: url('https://images.lifestyleasia.com/wp-content/uploads/sites/2/2020/02/25145253/Photo-by-Alfons-Morales-on-Unsplash-scaled-1535x900.jpg');
+    background-size: cover;
 }
 
 .button{
     width: 120px;
     height: 55px;
-    background-color: rgb(28,17,47);
     color: white;
     border-radius: 10px;
     font-size: 22px;
     margin-top: 15px;
-}
-
-h1{
-    color: rgb(6,27,55);
 }
 
 .alert{
@@ -49,20 +45,20 @@ h1{
     font-size: 16px;
 }
 
+.card-content > form {
+    margin-bottom: 25px;
+}
+
+.card-content > span{
+    font-size: 20px;
+}
+
 
 /*    Login    */
 
-.card h3, .card li{
-    color: rgb(28,17,47);
-}
 
 .card{
-    border: 2px solid teal;
-}
-
-::placeholder{
-    color: rgb(28,17,47);
-    font-size: 18px;
+    border-radius: 10px;
 }
 
 .section a{
@@ -70,19 +66,38 @@ h1{
     width: 350px;
 }
 
-span{
-    font-size: 18px;
-}
-
-.login-p{
-    margin-top: 10px !important;
-    font-size: 18px;
-}
 
 /*   Tables    */
 
 table{
     margin: 40px 0px;
+    background-color: white;
+}
+
+td:first-child,th:first-child{
+    padding-left: 30px;
+}
+
+/*    Modals    */
+
+.modal{
+    width: 30%;
+    height: 22%;
+    padding: 5px;
+}
+
+.modal p{
+    text-align: center;
+    font-size: 24px;
+}
+
+.modal form{
+    text-align: center;
+    margin-top: -20px;
+}
+
+.modal .btn{
+    font-size: 18px;
 }
 
 /*    Friends    */
@@ -103,6 +118,14 @@ table{
 
 .friends{
     width: 30%;
+}
+
+.friends li{
+    margin: 15px;
+}
+
+.friends a{
+    font-size: 20px;
 }
 
 /*   Community    */

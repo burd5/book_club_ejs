@@ -7,7 +7,11 @@ router.get('/getBooks', ensureAuth, booksController.getBooks)
 
 router.post('/addBook', booksController.addBook)
 
+router.put('/markFavorite/:id', booksController.markFavorite)
+
 router.put('/markComplete', booksController.markComplete)
+
+router.put('/unFavorite/:id', booksController.unFavorite)
 
 router.put('/markIncomplete', booksController.markIncomplete)
 

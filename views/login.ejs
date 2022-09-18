@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Book Club</title>
 </head>
-<body>
+<body class="login-body">
 <div class="section">
     <div class="container login-container">
-        <div class="card  yellow lighten-5">
+        <div class="card">
             <h3><i class="fa-solid fa-book-open"></i> Book Club</h3>
             <% if (locals.messages.errors) { %>
                 <% messages.errors.forEach( el => { %>
@@ -29,9 +29,9 @@
                 <form action="/login" method="POST">
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
-                    <input type="submit" value="Sign-In" class="button teal lighten-3">
+                    <input type="submit" value="Sign-In" class="button light-blue darken-4">
                 </form>
-                <p class="login-p">Don't have an account? <a href="/signup">Register</a></p>
+                <span>Don't have an account? <a href="/signup">Register</a></span>
             </div>
         </div>
     </div>

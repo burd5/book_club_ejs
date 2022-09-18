@@ -18,6 +18,17 @@ module.exports = {
             console.log(err)
         }
     },
+    unFavorite: async (req,res) => {
+        try{
+            await Books.findOneAndUpdate({_id:req.params.id},{
+                favorite: false
+            })
+            console.log('Marked unFavorite')
+            res.redirect('/favorites')
+        }catch(err){
+            console.log(err)
+        }
+    },
     markComplete: async (req, res)=>{
         try{
             await Books.findOneAndUpdate({_id:req.body.bookIdFromJSFile},{
@@ -25,6 +36,17 @@ module.exports = {
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    markFavorite: async (req,res) => {
+        try{
+            await Books.findOneAndUpdate({_id:req.params.id},{
+                favorite: true
+            })
+            console.log('Marked Favorite')
+            res.redirect('/dashboard')
         }catch(err){
             console.log(err)
         }
@@ -43,8 +65,7 @@ module.exports = {
     deleteBook: async (req, res)=>{
         try{
             //Find book by id
-            let book = await Books.findById({id: req.books.id})
-            await Books.findOneAndDelete({book});
+            await Books.findOneAndDelete({_id:req.params.id})
             console.log('Deleted Book')
             res.redirect('/dashboard')
         }catch(err){

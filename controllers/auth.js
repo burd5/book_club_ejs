@@ -82,11 +82,12 @@ module.exports = {
       }
       user.save((err) => {
         if (err) { return next(err) }
-        req.logIn(user, (err) => {
+        req.logIn(user, async (err) => {
           if (err) {
             return next(err)
           }
-          res.render('/dashboard')
+          const bookItems = await Books.find({user:req.user.id}).sort({rating: -1})
+          res.render('/dashboard', {userName: req.user.userName, books: bookItems, user: req.user.id})
         })
       })
     })

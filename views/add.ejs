@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Book Club</title>
-    <link rel="icon" href="https://www.frontlist.in/storage/uploads/2021/04/20191219170611-GettyImages-1152794789.jpeg">
-</head>
+<%- include('partials/header') -%>
 <div class="container">
 <h3>Add Book</h3>
 <div class="row">
@@ -30,31 +19,35 @@
 
         <div class="row">
             <div class="input-field">
-                <input type="number" id="rating" name="rating" step=".01" autocomplete="off">
+                <input type="number" id="rating" name="rating" step=".01" min="0" max="10" autocomplete="off">
                 <label for="rating">Rating</label>
             </div>
         </div>
 
         <div class="row">
-            <div class="input-field browser-default">
-                <label for="listType">List Type</label>
+            <div class="input-field">
                 <select id="list-type" name="list-type">
+                    <option value="" disabled selected>Choose a List</option>
                     <option value="completed">Completed</option>
                     <option value="readingList">Reading List</option>
                     <option value="favorite">Favorite</option>
                 </select>
+                <label for="listType">List Type</label>
             </div>
         </div>
 
         <div class="row">
-            <input type="submit" value="Save" class="btn-large"></input>
-            <a href="/dashboard" class="btn-large lime">Cancel</a>
+            <input type="submit" value="Save" class="btn-large light-blue darken-4"></input>
+            <a href="/dashboard" class="btn-large teal lighten-3">Cancel</a>
         </div>
 
     </form>
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+    <script>
+        M.FormSelect.init(document.querySelector('#list-type'))
     </script>
 </body>
 </html>

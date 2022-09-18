@@ -1,26 +1,40 @@
 <%- include('partials/header') -%>
     <h1>Reading List</h1>
     <table id="table" class="highlight responsive-table">
-        <thead class="thead-dark">
+        <thead class="yellow lighten-5">
             <tr>
                 <th>Book Title</th>
                 <th>Author Name</th>
-                <th>Rating</th>
+                <th>Mark Complete</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <% for(let i=0; i < books.length; i++) {%>
                 <tr class="book">
-                    <th><%= books[i].title %></th>
-                    <th><%= books[i].author %></th>
-                    <th><%= books[i].rating %></th>
-                    <th><span class='fa fa-trash'></span></th>
+                    <td><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
+                    <td>
+                        <form
+                        class="col-1"
+                        action="books/markComplete/<%=books[i]._id%>?_method=PUT"
+                        method="POST"
+                      >
+                        <button class="btn light-blue darken-4 fa fa-trash" type="submit"></button>
+                      </form>
+                    </td>
+                    <td>
+                        <form
+                        class="col-1"
+                        action="books/deleteBook/<%=books[i]._id%>?_method=DELETE"
+                        method="POST"
+                      >
+                        <button class="btn light-blue darken-4 fa fa-trash" type="submit"></button>
+                      </form>
+                    </td>
                 </tr>
                 <% } %>
         </tbody>
     </table>
 </div>
-<div class="fixed-action-btn">
-    <a href="/bookForm" class="btn-floating btn-large waves-effect waves-light teal accent-3"><i class="fas fa-plus"></i></a>
-</div>
+<%- include('partials/footer') -%>
