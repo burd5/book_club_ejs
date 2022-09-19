@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const BookSchema = new mongoose.Schema({
     title: {
         type: String,
-        trim: true
+        trim: true,
     },
     author: {
         type: String,
@@ -12,10 +12,6 @@ const BookSchema = new mongoose.Schema({
         type: Number,
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    },
-    userName: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
@@ -28,6 +24,10 @@ const BookSchema = new mongoose.Schema({
         default: false,
     },
     readingList: {
+        type: Boolean,
+        default: false,
+    },
+    completed: {
         type: Boolean,
         default: false,
     }

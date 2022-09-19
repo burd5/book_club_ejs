@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 <h1>Community Feed</h1>
-<table id="table" class="striped responsive-table">
+<table id="table" class="centered striped responsive-table">
     <thead class="orange lighten-4">
         <tr>
             <th>User</th>
@@ -8,23 +8,22 @@
             <th>Author</th>
             <th>Date</th>
             <th>Rating</th>
-            <th class="action">Action</th>
+            <th class="action">Add to:</th>
         </tr>
     </thead>
     <tr>
         <% for(let i=0; i < books.length; i++) {%>
 
-                <td><a href="/profile/<%= books[i].user %>"><%= books[i].user %></td></a>
+                <td><a href="/profile/<%= user %>"><%= user[i].userName %></td></a>
                 <td><%= books[i].title %></td>
                 <td><%= books[i].author %></td>
                 <td><%= books[i].createdAt.toLocaleDateString() %></td>
                 <td><%= books[i].rating %></td>
-                <td class='dropdown-trigger btn light-blue darken-4 fas fa-ellipsis-h' href='#' data-target='dropdown1'>
+                <td class='dropdown-trigger fa fa-plus' href='#' data-target='dropdown1'>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li class="dropOp"><a href="#">Add to Reading List</a></li>
-                        <li class="dropOp"><a href="#">Add to Favorites</a></li>
-                        <li><a href="#">Add to Completed</a></li>
-                        <li><a href="#">Follow User</a></li>
+                        <li><a href="#">Reading List</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">Completed</a></li>
                     </ul>
                 </td>
             </tr>

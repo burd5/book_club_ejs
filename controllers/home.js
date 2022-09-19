@@ -3,34 +3,67 @@ const User = require('../models/User')
 
 module.exports = {
     getIndex: (req,res)=>{
-        res.render('login.ejs')
+        try {
+            res.render('login.ejs')
+        } catch (err) {
+            console.log(err)
+        }
     },
     getCommunity: async (req,res) =>{
-        const bookItems = await Books.find().sort({createdAt: -1})
-        res.render('community.ejs', {books: bookItems, user: req.user.id})
+        try {
+            const bookItems = await Books.find().lean().sort({createdAt: -1}).populate({path: 'user', select: 'userName'})
+            console.log(bookItems)
+            res.render('community.ejs', {books: bookItems, userName: req.user.userName, user: req.user.id})
+        } catch (err) {
+            console.log(err)
+        }
     },
     getFavorites: async (req,res) =>{
-        const bookItems = await Books.find({user: req.user.id})
-        res.render('favorites.ejs', {books: bookItems, user: req.user.id})
+        try {
+            const bookItems = await Books.find({user: req.user.id})
+            res.render('favorites.ejs', {books: bookItems, user: req.user.id})
+        } catch (error) {
+            console.log(err)
+        }
     },
     getDashboard: async (req,res) =>{
-        const bookItems = await Books.find({user: req.user.id}).sort({rating: -1})
-        res.render('dashboard.ejs', {books: bookItems, user: req.user.id, userName: req.user.userName})
+        try {
+            const bookItems = await Books.find({user: req.user.id}).sort({rating: -1})
+            res.render('dashboard.ejs', {books: bookItems, user: req.user.id, userName: req.user.userName})
+        } catch (err) {
+            console.log(err)
+        }
     },
     getReadingList: async (req,res) =>{
-        const bookItems = await Books.find({userId:req.user.id})
-        res.render('readingList.ejs', {user: req.user.id, userName: req.user.userName, books: bookItems})
+        try {
+            const bookItems = await Books.find({userId:req.user.id})
+            res.render('readingList.ejs', {user: req.user.id, userName: req.user.userName, books: bookItems})
+        } catch (err) {
+            console.log(err)
+        }
     },
     getFriends: async (req,res) =>{
-        const userItems = await User.find({user: req.id})
-        res.render('friends.ejs', {user: userItems, userName: req.user.userName})
+        try {
+            const userItems = await User.find({user: req.id})
+            res.render('friends.ejs', {user: userItems, userName: req.user.userName})
+        } catch (err) {
+            console.log(err)
+        }
     },
     getProfile: async (req,res) =>{
-        const userItems = await User.find({user: req.id})
-        const bookItems = await Books.find({userId:req.user.id})
-        res.render('profile.ejs', {user: userItems, userName: req.user.userName, books: bookItems})
+        try {
+            const userItems = await User.find({user: req.id})
+            const bookItems = await Books.find({userId:req.user.id})
+            res.render('profile.ejs', {user: userItems, userName: req.user.userName, books: bookItems})
+        } catch (err) {
+            console.log(err)
+        }
     },
     getBookForm: (req,res) => {
-        res.render('add.ejs')
+        try {
+            res.render('add.ejs')
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

@@ -10,8 +10,8 @@
         <ul class="friends">
             <div class="card">
                 <li><%= user[i].img.data %></li>
-                <li><a href="#"><%= user[i].userName %></a></li>
-                <form class="col-1" action="" method="POST">
+                <li><a href="/profile/<%= user[i].id %>"><%= user[i].userName %></a></li>
+                <form class="col-1" action="/addFriend" method="POST">
                     <button class="btn light-blue darken-4" type="submit">Follow</button>
                 </form>
             </div>

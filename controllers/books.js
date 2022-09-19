@@ -1,4 +1,5 @@
 const Books = require('../models/Books')
+const User = require('../models/User')
 
 module.exports = {
     getBooks: async (req,res)=>{
@@ -69,6 +70,15 @@ module.exports = {
             console.log('Deleted Book')
             res.redirect('/dashboard')
         }catch(err){
+            console.log(err)
+        }
+    },
+    addFriend: async (req,res) =>{
+        try {
+            await User.find({friends: user.req.friends})
+            console.log('Added Friend')
+            res.redirect('/friends')
+        } catch (err) {
             console.log(err)
         }
     }

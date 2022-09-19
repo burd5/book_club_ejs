@@ -1,5 +1,42 @@
 <%- include('partials/header') -%>
-<h1><%= userName %></h1>
-
+<h1><%= user.userName %></h1>
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header"><h4>Friends</h4></div>
+        <div class="collapsible-body"></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><h4>Recent Reads</h4></div>
+        <div class="collapsible-body">
+    <table class="highlight responsive-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                <% for(let i=0; i < books.length; i++) {%>
+                    <td><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
+                    <td><%= books[i].createdAt.toLocaleDateString() %></td>
+                    <td><%= books[i].rating %></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+    </li>
+    <li>
+        <div class="collapsible-header"><h4>Favorites</h4></div>
+        <div class="collapsible-body"></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><h4>Reading List</h4></div>
+        <div class="collapsible-body"></div>
+    </li>
+</ul>
 
 <%- include('partials/footer') -%>

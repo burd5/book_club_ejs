@@ -87,7 +87,7 @@ module.exports = {
             return next(err)
           }
           const bookItems = await Books.find({user:req.user.id}).sort({rating: -1})
-          res.render('/dashboard', {userName: req.user.userName, books: bookItems, user: req.user.id})
+          res.render('dashboard.ejs', {userName: req.user.userName, books: bookItems, user: req.user.id})
         })
       })
     })

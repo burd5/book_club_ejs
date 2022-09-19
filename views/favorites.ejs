@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 <h1>Favorites</h1>
-<table id="table" class="highlight responsive-table">
+<table id="table" class="centered highlight responsive-table">
     <thead class="orange lighten-4">
         <tr>
             <th>Book Title</th>
@@ -22,7 +22,7 @@
                         action="books/unFavorite/<%=books[i]._id%>?_method=PUT"
                         method="POST"
                       >
-                      <button class="btn light-blue darken-4 fa fa-thumbs-down" onclick="M.toast({html: 'Deleted from favorites!'})" type="submit"></button>
+                      <button class="btn light-blue darken-4 fa fa-thumbs-down" type="submit" onclick="M.toast({html: 'Deleted from favorites'})"></button>
                       </form>
                 </td>
             </tr>
