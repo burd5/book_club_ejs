@@ -11,6 +11,7 @@
         </thead>
         <tbody>
             <% for(let i=0; i < books.length; i++) {%>
+              <%if(books[i].favorite == true){ %>
                 <tr class="book">
                     <td><%= books[i].title %></td>
                     <td><%= books[i].author %></td>
@@ -33,6 +34,7 @@
                       </form>
                     </td>
                 </tr>
+                <% } %>
                 <% } %>
         </tbody>
     </table>

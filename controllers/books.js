@@ -11,10 +11,20 @@ module.exports = {
         }
     },
     addBook: async (req, res)=>{
+    
         try{
             await Books.create({title: req.body.title, author: req.body.author, rating: req.body.rating, user: req.user.id})
             console.log('Book has been added!')
             res.redirect('../dashboard')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    addReading: async (req, res)=>{
+        try{
+            await Books.create({title: req.body.title, author: req.body.author, rating: req.body.rating, user: req.user.id, completed: true})
+            console.log('Book has been added!')
+            res.render('readingList.ejs')
         }catch(err){
             console.log(err)
         }

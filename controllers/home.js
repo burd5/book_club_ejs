@@ -13,7 +13,7 @@ module.exports = {
         try {
             const bookItems = await Books.find().lean().sort({createdAt: -1}).populate({path: 'user', select: 'userName'})
             console.log(bookItems)
-            res.render('community.ejs', {books: bookItems, userName: req.user.userName, user: req.user.id})
+            res.render('community.ejs', {books: bookItems, userName: req.user.userName, user: req.user.id, userId: req.user._id})
         } catch (err) {
             console.log(err)
         }
@@ -52,9 +52,9 @@ module.exports = {
     },
     getProfile: async (req,res) =>{
         try {
-            const userItems = await User.find({user: req.id})
-            const bookItems = await Books.find({userId:req.user.id})
-            res.render('profile.ejs', {user: userItems, userName: req.user.userName, books: bookItems})
+            const user = await User.findById(req.params.id).populate({path: 'user', select: 'userName'})
+            const bookItems = await Books.find({user: req.params.user})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id})
         } catch (err) {
             console.log(err)
         }

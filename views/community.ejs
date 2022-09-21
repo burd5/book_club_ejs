@@ -14,7 +14,7 @@
     <tr>
         <% for(let i=0; i < books.length; i++) {%>
 
-                <td><a href="/profile/<%= user %>"><%= user[i].userName %></td></a>
+                <td><a href="profile/<%= books[i].user._id %>"><%= books[i].user.userName %></a></td>
                 <td><%= books[i].title %></td>
                 <td><%= books[i].author %></td>
                 <td><%= books[i].createdAt.toLocaleDateString() %></td>
@@ -22,7 +22,6 @@
                 <td class='dropdown-trigger fa fa-plus' href='#' data-target='dropdown1'>
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="#">Reading List</a></li>
-                        <li><a href="#">Favorites</a></li>
                         <li><a href="#">Completed</a></li>
                     </ul>
                 </td>
@@ -30,15 +29,7 @@
             <% } %>
 </table>
 </div>
-<ul class="pagination center">
-    <li class="waves-effect"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-    <li class="active orange lighten-3"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#">2</a></li>
-    <li class="waves-effect"><a href="#">3</a></li>
-    <li class="waves-effect"><a href="#">4</a></li>
-    <li class="waves-effect"><a href="#">5</a></li>
-    <li class="waves-effect"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-</ul>
+
 <div class="fixed-action-btn">
 <a href="/bookForm" class="btn-floating btn-large waves-effect waves-light light-blue darken-4"><i class="fas fa-plus"></i></a>
 </div>
