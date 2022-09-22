@@ -22,9 +22,9 @@ module.exports = {
     },
     addReading: async (req, res)=>{
         try{
-            await Books.create({title: req.body.title, author: req.body.author, rating: req.body.rating, user: req.user.id, completed: true})
+            await Books.create({title: req.body.title, author: req.body.author, rating: req.body.rating, user: req.user.id, completed: false})
             console.log('Book has been added!')
-            res.render('readingList.ejs')
+            res.redirect('../readingList')
         }catch(err){
             console.log(err)
         }
@@ -42,11 +42,11 @@ module.exports = {
     },
     markComplete: async (req, res)=>{
         try{
-            await Books.findOneAndUpdate({_id:req.body.bookIdFromJSFile},{
+            await Books.findOneAndUpdate({_id:req.params.id},{
                 completed: true
             })
+            res.redirect('/readingList')
             console.log('Marked Complete')
-            res.json('Marked Complete')
         }catch(err){
             console.log(err)
         }
@@ -62,17 +62,6 @@ module.exports = {
             console.log(err)
         }
     },
-    markIncomplete: async (req, res)=>{
-        try{
-            await Books.findOneAndUpdate({_id:req.body.bookIdFromJSFile},{
-                completed: false
-            })
-            console.log('Marked Incomplete')
-            res.json('Marked Incomplete')
-        }catch(err){
-            console.log(err)
-        }
-    },
     deleteBook: async (req, res)=>{
         try{
             //Find book by id
@@ -83,11 +72,33 @@ module.exports = {
             console.log(err)
         }
     },
+    deleteFromReadingList: async (req, res)=>{
+        try{
+            //Find book by id
+            await Books.findOneAndDelete({_id:req.params.id})
+            console.log('Deleted Book')
+            res.redirect('/readingList')
+        }catch(err){
+            console.log(err)
+        }
+    },
     addFriend: async (req,res) =>{
         try {
-            await User.find({friends: user.req.friends})
+            await User.findOneAndUpdate({_id: req.params.id}, 
+                {$addToSet: {friends: req.user.id}})
             console.log('Added Friend')
             res.redirect('/friends')
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    addRating: async (req,res) =>{
+        try {
+            await Books.findOneAndUpdate({_id:req.params.id}, {
+                rating: req.params.rating
+            })
+            console.log('Added Rating')
+            res.redirect('/readingList')
         } catch (err) {
             console.log(err)
         }

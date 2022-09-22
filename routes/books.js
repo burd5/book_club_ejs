@@ -9,16 +9,18 @@ router.post('/addBook', booksController.addBook)
 
 router.post('/addReading', booksController.addReading)
 
-router.put('/addFriend', booksController.addFriend)
+router.put('/addFriend/:id', booksController.addFriend)
+
+router.put('/addRating/:id', booksController.addRating)
 
 router.put('/markFavorite/:id', booksController.markFavorite)
 
-router.put('/markComplete', booksController.markComplete)
+router.put('/markComplete/:id', booksController.markComplete)
 
 router.put('/unFavorite/:id', booksController.unFavorite)
 
-router.put('/markIncomplete', booksController.markIncomplete)
-
 router.delete('/deleteBook/:id', booksController.deleteBook)
+
+router.delete('/deleteFromReadingList/:id', booksController.deleteFromReadingList)
 
 module.exports = router

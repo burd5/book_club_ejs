@@ -1,7 +1,8 @@
 <%- include('partials/header') -%>
-    <h1><%= userName.charAt(0).toUpperCase() + userName.slice(1) + "'s"%> Books (<%= books.length %>)</h1>
+    <h1><%= userName.charAt(0).toUpperCase() + userName.slice(1) %></h1>
+    <h4>Books Read (<%= booksRead.length %>)</h4>
     <table id="table" class="centered striped responsive-table">
-        <thead class="orange lighten-4">
+        <thead class="orange lighten-5">
             <tr>
                 <th>Book Title</th>
                 <th>Author Name</th>
@@ -13,13 +14,18 @@
         </thead>
         <tr>
             <% for(let i=0; i < books.length; i++) {%>
+              <% if(books[i].completed == true) {%>
                     <td><%= books[i].title %></td>
                     <td><%= books[i].author %></td>
+                    <% if(books[i].rating == null) {%>
+                    <td><i class="btn light-blue darken-4 fa fa-plus"></td>
+                      <%} else {%>
                     <td><%= books[i].rating %></td>
+                      <% } %>
                     <td><%= books[i].createdAt.toLocaleDateString() %></td>
                     <td>
                     <%if(books.user == user.id){ %>
-                      <div id="modal1" class="modal">
+                      <!--<div id="modal1" class="modal">
                         <div class="modal-content">
                           <p>Are you sure you want to delete this entry?</p>
                         </div>
@@ -29,10 +35,15 @@
                             <span class="modal-close btn light-blue darken-4">Cancel</span>
                           </form>
                         </div>
-                      </div>
-                        <button class="btn modal-trigger light-blue darken-4 fa fa-trash" href="#modal1" type="submit"></button>
+                      </div>-->
+                        <form class="col-1" action="books/deleteBook/<%=books[i]._id%>?_method=DELETE" method="POST">
+
+                          <button class="btn light-blue darken-4 fa fa-trash" type="submit" onclick="M.toast({html: 'Deleted from list!'})"></button>
+                        </form>
+                  </td>
                     </td>
-                    <td><form
+                    <td>
+                      <form
                         class="col-1"
                         action="books/markFavorite/<%=books[i]._id%>?_method=PUT"
                         method="POST"
@@ -40,17 +51,10 @@
                         <button id="favorite" class="btn light-blue darken-4 fa fa-heart" onclick="M.toast({html: 'Added to favorites!'})" type="submit"></button>
                       </form>
                     </td>
-                    <%}%>
                 </tr>
+                <% } %>
+                <% } %>
                 <% } %>
     </table>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            var modal = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(modal);
-          });
-    </script>
 <%- include('partials/footer') -%>

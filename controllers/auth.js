@@ -33,7 +33,8 @@ module.exports = {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
         const bookItems = await Books.find({user:req.user.id}).sort({rating: -1})
-        res.render('dashboard.ejs', {userName: req.user.userName, books: bookItems, user: req.user.id})
+        const booksRead = await Books.find({user: req.user.id, completed: true})
+        res.render('dashboard.ejs', {userName: req.user.userName, books: bookItems, user: req.user.id, booksRead: booksRead})
       })
     })(req, res, next)
   },

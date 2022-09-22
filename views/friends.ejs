@@ -1,8 +1,8 @@
 <%- include('partials/header') -%>
-    <h1>Friends</h1>
-    <input type="text" placeholder="Search for friends"></input>
+    <h1>Followers (<%= friends.length %>)</h1>
+    <input type="text" placeholder="Search for users"></input>
     
-    <h2>Other Users (<%= user.length %>)</h2>
+    <h4>Other Users (<%= user.length %>)</h4>
 
 
     <div class="profile-cards">
@@ -11,8 +11,8 @@
             <div class="card">
                 <li><%= user[i].img.data %></li>
                 <li><a href="/profile/<%= user[i].id %>"><%= user[i].userName %></a></li>
-                <form class="col-1" action="/addFriend" method="POST">
-                    <button class="btn light-blue darken-4" type="submit">Follow</button>
+                <form class="col-1" action="books/addFriend/<%= user[i]._id %>?_method=PUT" method="POST">
+                    <button class="btn light-blue darken-4" type="submit" onclick="M.toast({html: 'Added to followers!'})">Follow</button>
                 </form>
             </div>
         </ul>

@@ -1,14 +1,14 @@
 <%- include('partials/header') -%>
-<h1>Community Feed</h1>
+<h1>Community Feed (<%= books.length %>)</h1>
 <table id="table" class="centered striped responsive-table">
-    <thead class="orange lighten-4">
+    <thead class="orange lighten-5">
         <tr>
             <th>User</th>
             <th>Book Title</th>
             <th>Author</th>
             <th>Date</th>
             <th>Rating</th>
-            <th class="action">Add to:</th>
+            <!--<th class="action">Add to:</th>-->
         </tr>
     </thead>
     <tr>
@@ -19,12 +19,12 @@
                 <td><%= books[i].author %></td>
                 <td><%= books[i].createdAt.toLocaleDateString() %></td>
                 <td><%= books[i].rating %></td>
-                <td class='dropdown-trigger fa fa-plus' href='#' data-target='dropdown1'>
+                <!--<td class='dropdown-trigger fa fa-plus' href='#' data-target='dropdown1'>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#">Reading List</a></li>
-                        <li><a href="#">Completed</a></li>
+                        <li><a href="/addReading">Reading List</a></li>
+                        <li><a href="/addBook">Completed</a></li>
                     </ul>
-                </td>
+                </td>-->
             </tr>
             <% } %>
 </table>

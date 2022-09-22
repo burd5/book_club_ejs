@@ -6,7 +6,7 @@
         <div class="collapsible-body"></div>
     </li>
     <li>
-        <div class="collapsible-header"><h4>Recent Reads</h4></div>
+        <div class="collapsible-header"><h4>Completed Books</h4></div>
         <div class="collapsible-body">
     <table class="highlight responsive-table">
         <thead>
@@ -20,22 +20,65 @@
         <tbody>
                 <tr>
                 <% for(let i=0; i < books.length; i++) {%>
+                    <% if (books[i].completed == true) {%>
                     <td><%= books[i].title %></td>
                     <td><%= books[i].author %></td>
                     <td><%= books[i].createdAt.toLocaleDateString() %></td>
                     <td><%= books[i].rating %></td>
                 </tr>
                 <% } %>
+                <% } %>
         </tbody>
     </table>
+    </div>  
     </li>
     <li>
         <div class="collapsible-header"><h4>Favorites</h4></div>
-        <div class="collapsible-body"></div>
+        <div class="collapsible-body">
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    <% for(let i=0; i < books.length; i++) {%>
+                        <% if (books[i].favorite == true) {%>
+                        <td><%= books[i].title %></td>
+                        <td><%= books[i].author %></td>
+                        <td><%= books[i].rating %></td>
+                    </tr>
+                    <% } %>
+                    <% } %>
+            </tbody>
+        </table>
+        </div>
     </li>
     <li>
         <div class="collapsible-header"><h4>Reading List</h4></div>
-        <div class="collapsible-body"></div>
+        <div class="collapsible-body">
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    <% for(let i=0; i < books.length; i++) {%>
+                        <% if (books[i].completed == false) {%>
+                        <td><%= books[i].title %></td>
+                        <td><%= books[i].author %></td>
+                    </tr>
+                    <% } %>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
     </li>
 </ul>
 

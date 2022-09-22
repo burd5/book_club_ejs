@@ -4,15 +4,15 @@
 <div class="row">
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#addCompleted">Completed</a></li>
-            <li class="tab col s3"><a href="#addToList">Reading List</a></li>
+            <li class="tab col s3"><a href="#completed">Completed</a></li>
+            <li class="tab col s3"><a href="#readingList">Reading List</a></li>
           </ul>
         </div>
-    <div id="addCompleted" class="col s12">
+    <div id="completed" class="col s12">
     <form action="books/addBook" method="POST" class="col s12">
         <div class="row">
             <div class="input-field">
-                <input type="text" name="title">
+                <input type="text" id="title" name="title">
                 <label for="title">Title</label>
             </div>
         </div>
@@ -44,17 +44,17 @@
 
         <div class="row">
             <input id="save" type="submit" value="Save" class="btn-large light-blue darken-4"></input>
-            <a href="/dashboard" class="btn-large teal lighten-3">Cancel</a>
+            <a href="/dashboard" class="btn-large blue-grey darken-1">Cancel</a>
         </div>
 
     </form>
 </div>
 
-<div id="addToList" class="col s12">
-    <form action="books/addBook" method="POST" class="col s12">
+<div id="readingList" class="col s12">
+    <form action="books/addReading" method="POST" class="col s12">
         <div class="row">
             <div class="input-field">
-                <input type="text" name="title">
+                <input type="text" id="title" name="title">
                 <label for="title">Title</label>
             </div>
         </div>
@@ -66,12 +66,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="input-field">
-                <input type="number" id="rating" name="rating" step=".01" min="0" max="10" autocomplete="off">
-                <label for="rating">Rating</label>
-            </div>
-        </div>
 
         <!--<div class="row">
             <div class="input-field">
@@ -86,20 +80,21 @@
 
         <div class="row">
             <input id="save" type="submit" value="Save" class="btn-large light-blue darken-4"></input>
-            <a href="/dashboard" class="btn-large teal lighten-3">Cancel</a>
+            <a href="/readingList" class="btn-large teal lighten-3">Cancel</a>
         </div>
 
     </form>
 </div>
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-    </script>
-    <script>
-        M.FormSelect.init(document.querySelector('#list-type'))
-    </script>
-    <script>
-        let tabs = M.Tabs.init(tabs);
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const myTabs = document.querySelectorAll('.tabs');
+    M.Tabs.init(myTabs);
+  });
+</script>
 </body>
 </html>
+

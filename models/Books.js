@@ -23,13 +23,9 @@ const BookSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    readingList: {
-        type: Boolean,
-        default: false,
-    },
     completed: {
         type: Boolean,
-        default: false,
+        default: true,
     }
 })
 

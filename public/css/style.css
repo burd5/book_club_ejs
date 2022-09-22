@@ -7,7 +7,15 @@ li{
 }
 
 h1{
-    font-size: 40px;
+    font-size: 48px;
+    font-weight: 400;
+    color: rgb(32,88,150);
+    font-family:'Courier New', Courier, monospace;
+}
+
+h4{
+    text-align: center;
+    font-size: 28px;
 }
 
 /*    Errors    */
@@ -27,8 +35,21 @@ h1{
     font-size: 18px;
 }
 
+.nav-wrapper{
+    margin: 0px 50px;
+}
+
 
 /*   Forms   */
+
+#title, #author, #rating{
+    font-size: 26px;
+    font-weight: 200;
+}
+
+.input-field label{
+    font-size: 22px;
+}
 
 .login-container{
     width: 600px;
@@ -41,13 +62,22 @@ h1{
     background-size: cover;
 }
 
+input::placeholder{
+    color: rgb(32,88,150);
+}
+
+#login-color,
+#register {
+    color: rgb(32,88,150)
+}
+
 .button{
     width: 120px;
     height: 55px;
-    color: white;
     border-radius: 10px;
     font-size: 22px;
     margin-top: 15px;
+    border: 1px solid black;
 }
 
 .alert{
@@ -63,12 +93,33 @@ h1{
     font-size: 20px;
 }
 
+.tabs .tab a, .tabs .tab a:hover {
+    color: rgba(0, 72, 101, 0.7);
+    font-size: 18px;
+  }
+
+  
+  .tabs .tab a.active ,.tabs .tab li.active {
+    color:rgba(0, 72, 101, 0.7);
+    background-color: #fff;
+  }
+
+  
+  .tabs .indicator {
+    background-color:#00558d;
+    /*Custom Color Of Indicator*/
+  }
+
+  .tabs{
+    margin-bottom: 40px;
+  }
 
 /*    Login    */
 
 
 .card{
     border-radius: 10px;
+    border: 4px solid black;
 }
 
 .section a{
@@ -158,8 +209,7 @@ td{
     margin-bottom: 50px;
 }
 
-.dropdown-trigger{
+.dropdown-trigger.fa-plus{
     width: 100%;
 }
-
 
