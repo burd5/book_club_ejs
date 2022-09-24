@@ -1,5 +1,7 @@
 <%- include('partials/header') -%>
+
 <h1>Community Feed (<%= books.length %>)</h1>
+
 <table id="table" class="centered striped responsive-table">
     <thead class="orange lighten-5">
         <tr>
@@ -8,29 +10,18 @@
             <th>Author</th>
             <th>Date</th>
             <th>Rating</th>
-            <!--<th class="action">Add to:</th>-->
         </tr>
     </thead>
-    <tr>
+        <tr>
         <% for(let i=0; i < books.length; i++) {%>
-
-                <td><a href="profile/<%= books[i].user._id %>"><%= books[i].user.userName %></a></td>
-                <td><%= books[i].title %></td>
-                <td><%= books[i].author %></td>
-                <td><%= books[i].createdAt.toLocaleDateString() %></td>
-                <td><%= books[i].rating %></td>
-                <!--<td class='dropdown-trigger fa fa-plus' href='#' data-target='dropdown1'>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="/addReading">Reading List</a></li>
-                        <li><a href="/addBook">Completed</a></li>
-                    </ul>
-                </td>-->
-            </tr>
-            <% } %>
+            <td><a href="profile/<%= books[i].user._id %>"><%= books[i].user.userName %></a></td>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].author %></td>
+            <td><%= books[i].createdAt.toLocaleDateString() %></td>
+            <td><%= books[i].rating %></td>
+        </tr>
+        <% } %>
 </table>
 </div>
 
-<div class="fixed-action-btn">
-<a href="/bookForm" class="btn-floating btn-large waves-effect waves-light light-blue darken-4"><i class="fas fa-plus"></i></a>
-</div>
 <%- include('partials/footer') -%>

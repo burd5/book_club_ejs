@@ -11,6 +11,7 @@ const BookSchema = new mongoose.Schema({
     rating: {
         type: Number,
     },
+    // References User model through user.id
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

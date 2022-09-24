@@ -40,9 +40,9 @@ app.use(methodOverride("_method"));
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
 app.use(flash())
-  
+
+//Routes
 app.use('/', mainRoutes)
 app.use('/books', bookRoutes)
 

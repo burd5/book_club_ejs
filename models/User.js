@@ -12,11 +12,6 @@ const UserSchema = new mongoose.Schema({
       type: String, 
       unique: true 
     },
-  img:
-    {
-        data: Buffer,
-        contentType: String
-    },
   password: 
     {
     type: String,
@@ -24,6 +19,17 @@ const UserSchema = new mongoose.Schema({
   friends: 
     {
     type: Array,
+    },
+  img:
+    {
+      type: String,
+      require: true,
+      default: 'https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg',
+    },
+  cloudinaryId:
+    {
+      type: String,
+      require: true,
     }
 })
 

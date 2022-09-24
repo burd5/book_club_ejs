@@ -1,5 +1,7 @@
 <%- include('partials/header') -%>
+
 <h1>Favorites (<%= favorites.length %>)</h1>
+
 <table id="table" class="centered highlight responsive-table">
     <thead class="orange lighten-5">
         <tr>
@@ -10,23 +12,21 @@
         </tr>
     </thead>
     <tbody>
-            <tr>
-            <% for(let i=0; i < books.length; i++) {%>
-                <%if(books[i].favorite == true){ %>
-                <td><%= books[i].title %></td>
-                <td><%= books[i].author %></td>
-                <td><%= books[i].rating %></td>
-                <td>
-                    <form
-                        class="col-1"
-                        action="books/unFavorite/<%=books[i]._id%>?_method=PUT"
-                        method="POST"
-                      >
-                      <button class="btn light-blue darken-4 fa fa-thumbs-down" type="submit" onclick="M.toast({html: 'Deleted from favorites'})"></button>
-                      </form>
-                </td>
-            </tr>
-            <% } %>
+        <tr>
+        <% for(let i=0; i < books.length; i++) {%>
+        <%if(books[i].favorite == true){ %>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].author %></td>
+            <td><%= books[i].rating %></td>
+            <td>
+               <form class="col-1" action="books/unFavorite/<%=books[i]._id%>?_method=PUT" method="POST">
+                
+                <button class="btn light-blue darken-4 fa fa-thumbs-down" type="submit" onclick="M.toast({html: 'Deleted from favorites'})"></button>
+                      
+                </form>
+            </td>
+        </tr>
+        <% } %>
         <% } %>
     </tbody>
 </table>

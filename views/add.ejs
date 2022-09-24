@@ -1,57 +1,53 @@
 <%- include('partials/header') -%>
 <div class="container">
-<h3>Add Book</h3>
+    <h3>Add Book</h3>
+
 <div class="row">
-        <div class="col s12">
-          <ul class="tabs">
+
+    <div class="col s12">
+        <ul class="tabs">
             <li class="tab col s3"><a href="#completed">Completed</a></li>
             <li class="tab col s3"><a href="#readingList">Reading List</a></li>
-          </ul>
-        </div>
+        </ul>
+    </div>
+
     <div id="completed" class="col s12">
-    <form action="books/addBook" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="title" name="title">
-                <label for="title">Title</label>
+
+        <form action="books/addBook" method="POST" class="col s12">
+
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" id="title" name="title">
+                    <label for="title">Title</label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="author" name="author">
-                <label for="author">Author</label>
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" id="author" name="author">
+                    <label for="author">Author</label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="input-field">
-                <input type="number" id="rating" name="rating" step=".01" min="0" max="10" autocomplete="off">
-                <label for="rating">Rating</label>
+            <div class="row">
+                <div class="input-field">
+                    <input type="number" id="rating" name="rating" step=".01" min="0" max="10" autocomplete="off">
+                    <label for="rating">Rating</label>
+                </div>
             </div>
-        </div>
 
-        <!--<div class="row">
-            <div class="input-field">
-                <select id="list-type" name="list-type">
-                    <option value="" disabled selected>Choose a List</option>
-                    <option value="completed">Completed</option>
-                    <option value="readingList">Reading List</option>
-                </select>
-                <label for="listType">List Type</label>
+            <div class="row">
+                <input id="save" type="submit" value="Save" class="btn-large light-blue darken-4"></input>
+                <a href="/dashboard" class="btn-large blue-grey darken-1">Cancel</a>
             </div>
-        </div>-->
 
-        <div class="row">
-            <input id="save" type="submit" value="Save" class="btn-large light-blue darken-4"></input>
-            <a href="/dashboard" class="btn-large blue-grey darken-1">Cancel</a>
-        </div>
-
-    </form>
+        </form>
 </div>
 
 <div id="readingList" class="col s12">
+
     <form action="books/addReading" method="POST" class="col s12">
+
         <div class="row">
             <div class="input-field">
                 <input type="text" id="title" name="title">
@@ -65,18 +61,6 @@
                 <label for="author">Author</label>
             </div>
         </div>
-
-
-        <!--<div class="row">
-            <div class="input-field">
-                <select id="list-type" name="list-type">
-                    <option value="" disabled selected>Choose a List</option>
-                    <option value="completed">Completed</option>
-                    <option value="readingList">Reading List</option>
-                </select>
-                <label for="listType">List Type</label>
-            </div>
-        </div>-->
 
         <div class="row">
             <input id="save" type="submit" value="Save" class="btn-large light-blue darken-4"></input>
@@ -95,6 +79,7 @@
     M.Tabs.init(myTabs);
   });
 </script>
+
 </body>
 </html>
 

@@ -1,7 +1,9 @@
 const Books = require('../models/Books')
 const User = require('../models/User')
 
+// Methods - routed from books.js
 module.exports = {
+    // Renders dashboard from header
     getBooks: async (req,res)=>{
         try{
             const bookItems = await Books.find({user:req.books.user})
@@ -10,6 +12,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Adds new book to completed ('dashboard') from add.ejs form
     addBook: async (req, res)=>{
     
         try{
@@ -20,6 +23,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Adds new book to reading list ('readingList.ejs') from add.ejs form
     addReading: async (req, res)=>{
         try{
             await Books.create({title: req.body.title, author: req.body.author, rating: req.body.rating, user: req.user.id, completed: false})
@@ -29,6 +33,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Removes book from favorites ('favorites.ejs')
     unFavorite: async (req,res) => {
         try{
             await Books.findOneAndUpdate({_id:req.params.id},{
@@ -40,6 +45,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Marks book from reading list ('reading.ejs') as complete
     markComplete: async (req, res)=>{
         try{
             await Books.findOneAndUpdate({_id:req.params.id},{
@@ -51,6 +57,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Marks book from dashboard as favorite (added to 'favorites.ejs')
     markFavorite: async (req,res) => {
         try{
             await Books.findOneAndUpdate({_id:req.params.id},{
@@ -62,6 +69,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Removes book from 'dashboard.ejs' 
     deleteBook: async (req, res)=>{
         try{
             //Find book by id
@@ -72,6 +80,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Removes book from 'readingList.ejs'
     deleteFromReadingList: async (req, res)=>{
         try{
             //Find book by id
@@ -82,16 +91,29 @@ module.exports = {
             console.log(err)
         }
     },
+    // Follows other user from 'friends.ejs'
     addFriend: async (req,res) =>{
         try {
-            await User.findOneAndUpdate({_id: req.params.id}, 
-                {$addToSet: {friends: req.user.id}})
+            await User.findOneAndUpdate({_id: req.user.id}, 
+                {$addToSet: {friends: req.params.id}})
             console.log('Added Friend')
             res.redirect('/friends')
         } catch (err) {
             console.log(err)
         }
     },
+    // Removes follower from 'friends.ejs'
+    removeFriend: async (req,res) =>{
+        try {
+            await User.findOneAndUpdate({_id: req.user.id}, 
+                {$pull: {friends: req.params.id}})
+            console.log('Deleted Friend')
+            res.redirect('/friends')
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    // Adds rating to books that were originally added to 'readingList.ejs'
     addRating: async (req,res) =>{
         try {
             await Books.findOneAndUpdate({_id:req.params.id}, {

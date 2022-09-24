@@ -1,39 +1,40 @@
 <%- include('partials/header') -%>
-    <h1>Reading List (<%= booksRead.length %>)</h1>
-    <table id="table" class="centered highlight responsive-table">
-        <thead class="orange lighten-5">
-            <tr>
-                <th>Book Title</th>
-                <th>Author Name</th>
-                <th>Mark Complete</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for(let i=0; i < books.length; i++) {%>
-              <% if(books[i].completed == false){ %>
-                <tr class="book">
-                    <td><%= books[i].title %></td>
-                    <td><%= books[i].author %></td>
-                    <td>
-                          <form class="col-1" action="books/markComplete/<%=books[i]._id%>?_method=PUT" method="POST">
+  
+<h1>Reading List (<%= booksRead.length %>)</h1>
+  <table id="table" class="centered highlight responsive-table">
+    <thead class="orange lighten-5">
+      <tr>
+        <th>Book Title</th>
+        <th>Author Name</th>
+        <th>Mark Complete</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% for(let i=0; i < books.length; i++) {%>
+        <% if(books[i].completed == false){ %>
+      <tr class="book">
+        <td><%= books[i].title %></td>
+        <td><%= books[i].author %></td>
+        <td>
+          <form class="col-1" action="books/markComplete/<%=books[i]._id%>?_method=PUT" method="POST">
 
-                            <button class="btn light-blue darken-4 fa fa-check" type="submit" onclick="M.toast({html: 'Added to completed list!'})"></button>
-                          </form>
-                    </td>
-                    <td>
-                        <form
-                        class="col-1"
-                        action="books/deleteFromReadingList/<%=books[i]._id%>?_method=DELETE"
-                        method="POST"
-                      >
-                        <button class="btn light-blue darken-4 fa fa-trash" onclick="M.toast({html: 'Deleted from reading list!'})" type="submit"></button>
-                      </form>
-                    </td>
-                </tr>
-                <% } %>
-                <% } %>
-        </tbody>
-    </table>
+          <button class="btn light-blue darken-4 fa fa-check" type="submit" onclick="M.toast({html: 'Added to completed list!'})"></button>
+          
+          </form>
+        </td>
+        <td>
+          <form class="col-1" action="books/deleteFromReadingList/<%=books[i]._id%>?_method=DELETE" method="POST">
+          
+          <button class="btn light-blue darken-4 fa fa-trash" onclick="M.toast({html: 'Deleted from reading list!'})" type="submit"></button>
+
+          </form>
+        </td>
+      </tr>
+      <% } %>
+      <% } %>
+    </tbody>
+  </table>
 </div>
+
 <%- include('partials/footer') -%>

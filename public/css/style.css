@@ -1,4 +1,21 @@
-/*    General    */
+/*     CSS Directory     */
+
+/********************
+
+1. General Website Elements (Lines 14 - 41)
+2. Header (Lines 42 - 51)
+3. login.ejs (Lines 52 - 74)
+3. Login Forms (Lines 75 - 117)
+4. Add Book Forms (Lines 118 - 140)
+5. Tables (Lines 141 - 161)
+6. Modals (Lines 160 - 186)
+7. friends.ejs (Lines 188 - 220)
+8. community.ejs (Lines 221 - 230)
+9. profile.ejs (Lines 232 - 260)
+
+**********************/
+
+/*****   General   *****/
 body{
     font-family: 'Courier + Prime', monospace;
 }
@@ -8,17 +25,14 @@ li{
 
 h1{
     font-size: 48px;
-    font-weight: 400;
-    color: rgb(32,88,150);
+    font-weight: 500;
+    color: rgb(89,109,121);
     font-family:'Courier New', Courier, monospace;
 }
 
 h4{
-    text-align: center;
     font-size: 28px;
 }
-
-/*    Errors    */
 
 .err-msg {
 	padding: 10px 15px;
@@ -29,7 +43,7 @@ h4{
 }
 
 
-/*    Headers     */
+/*****    Header    *****/
 
 .nav-titles a{
     font-size: 18px;
@@ -39,16 +53,16 @@ h4{
     margin: 0px 50px;
 }
 
+/*****    Login    *****/
 
-/*   Forms   */
-
-#title, #author, #rating{
-    font-size: 26px;
-    font-weight: 200;
+.card{
+    border-radius: 10px;
+    border: 4px solid black;
 }
 
-.input-field label{
-    font-size: 22px;
+.section a{
+    margin-bottom: 10px;
+    width: 350px;
 }
 
 .login-container{
@@ -62,13 +76,24 @@ h4{
     background-size: cover;
 }
 
+/*****   Login Forms   *****/
+
+#title, #author, #rating{
+    font-size: 26px;
+    font-weight: 200;
+}
+
+.input-field label{
+    font-size: 22px;
+}
+
 input::placeholder{
-    color: rgb(32,88,150);
+    color: rgb(89,109,121);
 }
 
 #login-color,
 #register {
-    color: rgb(32,88,150)
+    color: rgb(89,109,121)
 }
 
 .button{
@@ -76,8 +101,9 @@ input::placeholder{
     height: 55px;
     border-radius: 10px;
     font-size: 22px;
+    color: rgb(89,109,121);
     margin-top: 15px;
-    border: 1px solid black;
+    border: 2px solid rgb(89,109,121);
 }
 
 .alert{
@@ -93,42 +119,28 @@ input::placeholder{
     font-size: 20px;
 }
 
+/*****    Add Book    *****/
+
 .tabs .tab a, .tabs .tab a:hover {
     color: rgba(0, 72, 101, 0.7);
     font-size: 18px;
-  }
-
-  
-  .tabs .tab a.active ,.tabs .tab li.active {
+}
+ 
+.tabs .tab a.active ,.tabs .tab li.active {
     color:rgba(0, 72, 101, 0.7);
     background-color: #fff;
-  }
+} 
 
-  
-  .tabs .indicator {
+.tabs .indicator {
     background-color:#00558d;
     /*Custom Color Of Indicator*/
-  }
+}
 
-  .tabs{
+.tabs{
     margin-bottom: 40px;
-  }
-
-/*    Login    */
-
-
-.card{
-    border-radius: 10px;
-    border: 4px solid black;
 }
 
-.section a{
-    margin-bottom: 10px;
-    width: 350px;
-}
-
-
-/*   Tables    */
+/*****  Tables   *****/
 
 table{
     margin: 40px 0px;
@@ -149,39 +161,39 @@ td{
     padding-left: 10px;
 }
 
-/*    Modals    */
+/*****    Modals    *****/
 
 .modal{
-    width: 30%;
-    height: 27%;
-    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    padding: 25px;
     border-radius: 10px;
-}
-
-.modal p{
-    text-align: center;
-    font-size: 24px;
 }
 
 .modal form{
     text-align: center;
+    font-size: 18px;
+}
+
+.form-label{
+    margin-bottom: 15px;
+    margin-left: 55px;
 }
 
 .modal .btn{
     font-size: 18px;
 }
 
-.action{
-    width: 15%;
-}
+/*****    Friends    *****/
 
-/*    Friends    */
-
-.card{
+.friend-card{
     display: flex;
     padding: 20px;
     flex-direction: column;
     text-align: center;
+    border: 3px solid rgb(89,109,121);
+    border-radius: 10px;
+    height:400px;
 }
 
 .profile-cards{
@@ -189,6 +201,7 @@ td{
     justify-content: space-between;
     column-gap: 30px;
     flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .friends{
@@ -196,14 +209,27 @@ td{
 }
 
 .friends li{
-    margin: 15px;
+    margin: 10px;
 }
 
 .friends a{
     font-size: 20px;
 }
 
-/*   Community    */
+.btn-friends{
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#friends-img{
+    width: 250px;
+    height: 235px;
+    border: 2px solid rgb(89,109,121);
+    border-radius: 10px;
+    
+}
+
+/*****   Community    *****/
 
 .pagination{
     margin-bottom: 50px;
@@ -213,3 +239,42 @@ td{
     width: 100%;
 }
 
+/*****    Profile    *****/
+
+#profile-img{
+    width: 200px;
+    height: 180px;
+    margin-left: 10px;
+    border: 1px solid rgb(89,109,121);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.profile-header{
+    display: flex;
+    width:fit-content;
+    border: 2px solid rgb(89,109,121);
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.profile-name{
+    margin-right: 75px;
+    margin-left: 75px;
+}
+
+.form-label{
+    font-size: 20px;
+    color: rgb(89,109,121);
+}
+
+.profile-sub-head{
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-plus{
+    width: 20%;
+    align-self: center;
+    border-radius: 25px;
+}

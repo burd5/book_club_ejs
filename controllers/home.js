@@ -1,7 +1,10 @@
 const Books = require('../models/Books')
+const cloudinary = require("../middleware/cloudinary");
 const User = require('../models/User')
 
+// Methods - routed from main.js
 module.exports = {
+    // Renders login page
     getIndex: (req,res)=>{
         try {
             res.render('login.ejs')
@@ -9,6 +12,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'community.ejs' (Community Feed)
     getCommunity: async (req,res) =>{
         try {
             const bookItems = await Books.find().lean().sort({createdAt: -1}).populate({path: 'user', select: 'userName'})
@@ -18,6 +22,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'favorites.ejs' (Favorites)
     getFavorites: async (req,res) =>{
         try {
             const bookItems = await Books.find({user: req.user.id})
@@ -27,6 +32,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'dashboard.ejs' (Dashboard)
     getDashboard: async (req,res) =>{
         try {
             const bookItems = await Books.find({user: req.user.id}).sort({rating: -1})
@@ -36,6 +42,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'readingList.ejs' (Reading List)
     getReadingList: async (req,res) =>{
         try {
             const bookItems = await Books.find({user: req.user.id})
@@ -45,6 +52,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'friends.ejs' (Friends)
     getFriends: async (req,res) =>{
         try {
             const userItems = await User.find({_id: { $ne: req.user.id}})
@@ -53,6 +61,7 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders 'profile.ejs' from Community Feed ('community.ejs')
     getProfile: async (req,res) =>{
         try {
             const user = await User.findById(req.params.id).populate({path: 'user', select: 'userName'})
@@ -62,9 +71,33 @@ module.exports = {
             console.log(err)
         }
     },
+    // Renders current users profile ('profile.ejs') from header
+    getUserProfile: async (req,res) =>{
+        try {
+            const user = await User.findById(req.user.id)
+            const bookItems = await Books.find({user: req.user.id})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id})
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    // Renders 'add.ejs' from floating button
     getBookForm: (req,res) => {
         try {
             res.render('add.ejs')
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    // Adds image from 'profile.ejs' 
+    addImg: async (req,res) => {
+        try {
+            const result = await cloudinary.uploader.upload(req.file.path);
+            await User.findByIdAndUpdate({_id: req.user.id},{
+                img: result.secure_url,
+                cloudinaryId: result.public_id,
+            })
+            res.redirect('profile')
         } catch (err) {
             console.log(err)
         }

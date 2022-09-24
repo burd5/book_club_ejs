@@ -1,5 +1,26 @@
 <%- include('partials/header') -%>
-<h1><%= user.userName %></h1>
+<div class="card profile-header">
+    <img id="profile-img" src="<%= user.img %>">
+<div class="profile-sub-head">
+    <h1 class="profile-name"><%= user.userName %></h1>
+    <% if(user.id == userId) {%>
+    <i class="modal-trigger btn blue-grey darken-1 fa fa-plus" href="#modal1"></i>
+    <% } %>
+</div>
+</div>
+
+<div class="modal" id="modal1">
+    <form action="/addProfileImg?_method=PUT" enctype="multipart/form-data" method="POST">
+        <div class="row">
+          <label for="imgUpload" class="form-label">Change Profile Picture: </label>
+          <input type="file" class="form-control" id="imageUpload" name="file">
+        </div>
+        <button type="submit" class="btn light-blue darken-4" value="Upload">Submit</button>
+        <span class="btn blue-grey darken-1 modal-close">Cancel</span>
+    </form>
+</div>
+
+
 <ul class="collapsible">
     <li>
         <div class="collapsible-header"><h4>Friends</h4></div>
@@ -18,19 +39,19 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
-                <% for(let i=0; i < books.length; i++) {%>
-                    <% if (books[i].completed == true) {%>
-                    <td><%= books[i].title %></td>
-                    <td><%= books[i].author %></td>
-                    <td><%= books[i].createdAt.toLocaleDateString() %></td>
-                    <td><%= books[i].rating %></td>
-                </tr>
-                <% } %>
-                <% } %>
+            <tr>
+            <% for(let i=0; i < books.length; i++) {%>
+            <% if (books[i].completed == true) {%>
+                <td><%= books[i].title %></td>
+                <td><%= books[i].author %></td>
+                <td><%= books[i].createdAt.toLocaleDateString() %></td>
+                <td><%= books[i].rating %></td>
+            </tr>
+            <% } %>
+            <% } %>
         </tbody>
     </table>
-    </div>  
+        </div>  
     </li>
     <li>
         <div class="collapsible-header"><h4>Favorites</h4></div>
@@ -44,15 +65,15 @@
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                    <% for(let i=0; i < books.length; i++) {%>
-                        <% if (books[i].favorite == true) {%>
-                        <td><%= books[i].title %></td>
-                        <td><%= books[i].author %></td>
-                        <td><%= books[i].rating %></td>
-                    </tr>
-                    <% } %>
-                    <% } %>
+                <tr>
+                <% for(let i=0; i < books.length; i++) {%>
+                <% if (books[i].favorite == true) {%>
+                    <td><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
+                    <td><%= books[i].rating %></td>
+                </tr>
+                <% } %>
+                <% } %>
             </tbody>
         </table>
         </div>
@@ -68,14 +89,14 @@
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                    <% for(let i=0; i < books.length; i++) {%>
-                        <% if (books[i].completed == false) {%>
-                        <td><%= books[i].title %></td>
-                        <td><%= books[i].author %></td>
+                <tr>
+                <% for(let i=0; i < books.length; i++) {%>
+                <% if (books[i].completed == false) {%>
+                    <td><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
                     </tr>
-                    <% } %>
-                    <% } %>
+                <% } %>
+                <% } %>
             </tbody>
         </table>
     </div>
