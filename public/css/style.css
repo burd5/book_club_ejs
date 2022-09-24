@@ -24,14 +24,14 @@ li{
 }
 
 h1{
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 500;
     color: rgb(89,109,121);
     font-family:'Courier New', Courier, monospace;
 }
 
 h4{
-    font-size: 24px;
+    color: rgb(89,109,121);
 }
 
 .err-msg {
@@ -46,7 +46,7 @@ h4{
 /*****    Header    *****/
 
 .nav-titles a{
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .nav-wrapper{
@@ -197,7 +197,7 @@ td{
     text-align: center;
     border: 3px solid rgb(89,109,121);
     border-radius: 10px;
-    height: 400px;
+    height: fit-content;
 }
 
 .friends{
@@ -223,6 +223,18 @@ td{
     border: 2px solid rgb(89,109,121);
     border-radius: 10px;
     
+}
+
+h3{
+    color: rgb(89,109,121);
+}
+
+.friends-header{
+    margin: 0px;
+}
+
+.friends-collapsible{
+    margin-top: 25px;
 }
 
 /*****   Community    *****/

@@ -28,7 +28,9 @@ module.exports = {
   
     // Passport Authentication
     passport.authenticate('local', (err, user, info) => {
-      if (err) { return next(err) }
+      if (err) { 
+        req.flash('errors', info)
+       }
       if (!user) {
         req.flash('errors', info)
         return res.redirect('/')

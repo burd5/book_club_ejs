@@ -2,7 +2,7 @@
 
 <ul class="collapsible friends-collapsible">
   <li>
-    <div class="collapsible-header"><h1>Friends (<%= friends.length %>)</h1></div>
+    <div class="collapsible-header"><h1 class="friends-header">Friends (<%= friends.length %>)</h1></div>
     <div class="collapsible-body">
         <table class="highlight responsive-table">
             <thead>
@@ -13,7 +13,7 @@
             <tbody>
                 <tr>
                 <% for(let i=0; i < friends.length; i++) {%>
-                    <td><%= friends[i] %></td>
+                    <td><a href="profile/<%= user[i]._id %>"><%= user[i].userName %></a></td>
                 </tr>
                 <% } %>
             </tbody>
@@ -36,13 +36,13 @@
             <% if(friends.includes(user[i].id)) {%>
                 <form class="col-1" action="books/removeFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
-                <button class="btn btn-friends red accent-4" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`})">Unfollow</button>
+                <button class="btn btn-friends red accent-4" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`, displayLength: 1000})">Unfollow</button>
         
                 </form>
             <%} else {%>
             <form class="col-1" action="books/addFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
-            <button class="btn btn-friends light-blue darken-4" type="submit" onclick="M.toast({html: `Now following <%= user[i].userName %>!`})">Follow</button>
+            <button class="btn btn-friends light-blue darken-4" type="submit" onclick="M.toast({html: `Now following <%= user[i].userName %>!`, displayLength: 500})">Follow</button>
 
             </form>
             <% } %>
