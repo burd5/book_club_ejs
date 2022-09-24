@@ -157,12 +157,12 @@ td:last-child, th:last-child{
 }
 
 th{
-    font-size: 24px;
+    font-size: 18px;
 }
 
 td{
-    font-size: 20px;
-    padding-left: 10px;
+    font-size: 14px;
+    padding: 20px;
 }
 
 /*****    Modals    *****/
@@ -218,7 +218,7 @@ td{
 }
 
 #friends-img{
-    width: 85%;
+    width: 100%;
     height: 235px;
     border: 2px solid rgb(89,109,121);
     border-radius: 10px;
