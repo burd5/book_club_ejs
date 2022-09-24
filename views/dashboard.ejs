@@ -22,7 +22,7 @@
           <td><%= books[i].author %></td>
 
         <% if(books[i].rating == null) {%>
-          <td><i class="btn light-blue darken-4 fa fa-plus"></td>
+          <td><button class="btn light-blue darken-4 fas fa-star" type="submit" onclick="M.toast({html: 'Added rating'})"></button></td>
         <%} else {%>
           <td><%= books[i].rating %></td>
         <% } %>

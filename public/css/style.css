@@ -152,6 +152,10 @@ td:first-child,th:first-child{
     padding-left: 30px;
 }
 
+td:last-child, th:last-child{
+    padding-right: 30px;
+}
+
 th{
     font-size: 24px;
 }
@@ -193,15 +197,7 @@ td{
     text-align: center;
     border: 3px solid rgb(89,109,121);
     border-radius: 10px;
-    height:400px;
-}
-
-.profile-cards{
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+    height: 400px;
 }
 
 .friends{
@@ -222,7 +218,7 @@ td{
 }
 
 #friends-img{
-    width: 70%;
+    width: 85%;
     height: 235px;
     border: 2px solid rgb(89,109,121);
     border-radius: 10px;
@@ -241,11 +237,18 @@ td{
 
 /*****    Profile    *****/
 
+.profile-cards{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
 #profile-img{
     width: 200px;
     height: 180px;
     margin-left: 10px;
-    border: 1px solid rgb(89,109,121);
     border-radius: 10px;
     margin: 10px;
 }
