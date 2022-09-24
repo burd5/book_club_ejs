@@ -24,14 +24,14 @@ li{
 }
 
 h1{
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 500;
     color: rgb(89,109,121);
     font-family:'Courier New', Courier, monospace;
 }
 
 h4{
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .err-msg {
@@ -192,7 +192,7 @@ td{
 
 .friend-card{
     display: flex;
-    padding: 20px;
+    padding: 10px;
     flex-direction: column;
     text-align: center;
     border: 3px solid rgb(89,109,121);
@@ -205,7 +205,7 @@ td{
 }
 
 .friends li{
-    margin: 10px;
+    margin: 5px;
 }
 
 .friends a{
