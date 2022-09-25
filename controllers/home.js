@@ -66,7 +66,7 @@ module.exports = {
         try {
             const user = await User.findById(req.params.id).populate({path: 'user', select: 'userName'})
             const bookItems = await Books.find({user: req.params.id})
-            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id, friends: req.user.friends})
         } catch (err) {
             console.log(err)
         }
@@ -76,7 +76,7 @@ module.exports = {
         try {
             const user = await User.findById(req.user.id)
             const bookItems = await Books.find({user: req.user.id})
-            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id, friends: req.user.friends})
         } catch (err) {
             console.log(err)
         }

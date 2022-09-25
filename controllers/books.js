@@ -116,11 +116,10 @@ module.exports = {
     // Adds rating to books that were originally added to 'readingList.ejs'
     addRating: async (req,res) =>{
         try {
-            await Books.findOneAndUpdate({_id:req.params.id}, {
-                rating: req.params.rating
-            })
+            await Books.findOneAndUpdate({_id:req.params.id},
+                {rating: req.body.rating})
             console.log('Added Rating')
-            res.redirect('/readingList')
+            res.redirect('/dashboard')
         } catch (err) {
             console.log(err)
         }

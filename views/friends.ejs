@@ -36,7 +36,7 @@
             <% if(friends.includes(user[i].id)) {%>
                 <form class="col-1" action="books/removeFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
-                <button class="btn btn-friends red accent-4" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`, displayLength: 1000})">Unfollow</button>
+                <button class="btn btn-friends red lighten-2" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`, displayLength: 1000})">Unfollow</button>
         
                 </form>
             <%} else {%>

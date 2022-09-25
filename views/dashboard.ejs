@@ -25,9 +25,11 @@
           <td><button class="btn modal-trigger light-blue darken-4 fas fa-star" type="submit" href="#modal1"></button></td>
           <div class="modal" id="modal1">
             <h4>Add a rating: </h4>
-            <form action="">
-              <input type="number">
+            <form action="/books/addRating/<%=books[i]._id%>?_method=PUT" method="POST">
+              <input type="number" step=".01" min="0" max="10" name="rating">
+              <button class="btn light-blue darken-4" type="Submit">Submit</button>
             </form>
+            <span class="btn blue-grey darken-1 modal-close">Cancel</span>
           </div>
         <%} else {%>
           <td><%= books[i].rating %></td>

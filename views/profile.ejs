@@ -24,7 +24,22 @@
 <ul class="collapsible">
     <li>
         <div class="collapsible-header"><h4>Friends</h4></div>
-        <div class="collapsible-body"></div>
+        <div class="collapsible-body">
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <% for(let i=0; i < friends.length; i++) {%>
+                        <td></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
     </li>
     <li>
         <div class="collapsible-header"><h4>Completed Books</h4></div>
