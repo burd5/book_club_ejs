@@ -297,3 +297,7 @@ h3{
     align-self: center;
     border-radius: 25px;
 }
+
+.profile-collapsible{
+    margin-bottom: 50px;
+}
