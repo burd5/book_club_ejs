@@ -4,7 +4,7 @@
   <li>
     <div class="collapsible-header"><h1 class="friends-header">Friends (<%= friends.length %>)</h1></div>
     <div class="collapsible-body">
-        <table class="highlight responsive-table">
+        <!--<table class="highlight responsive-table">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -13,15 +13,13 @@
             <tbody>
                 <tr>
                 <% for(let i=0; i < friends.length; i++) {%>
-                    <td><a class="friends-list" href="profile/<%= user[i]._id %>"><%= user[i].userName %></a></td>
+                    <td><a class="friends-list" href="profile/<%= friends[i]._id %>"><%= friends[i] %></a></td>
                 </tr>
                 <% } %>
             </tbody>
-        </table>
+        </table>-->
     </div>
 </ul>
-
-<input type="text" placeholder="Search for users is currently disabled" disabled></input>
     
 <h4>Book Club Users (<%= user.length %>)</h4>
 

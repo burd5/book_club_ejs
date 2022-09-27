@@ -2,6 +2,19 @@
 
 <h1>Community Feed (<%= books.length %>)</h1>
 
+<div class="row input-field col s3">
+    <span>Filter: </span>
+    <select>
+        <option value="dateDesc">Date (Newest)</option>
+        <option value="dateAsc">Date (Oldest)</option>
+        <option value="rateLow">Rating (Low to High)</option>
+        <option value="rateHigh">Rating (High to Low)</option>
+        <option value="aToZ">Author (A to Z)</option>
+        <option value="zToA">Author (Z to A)</option>
+        <option value="friends">Friends</option>
+    </select>
+</div>
+
 <table id="table" class="centered striped responsive-table">
     <thead class="orange lighten-5">
         <tr>

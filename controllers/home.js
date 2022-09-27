@@ -16,7 +16,6 @@ module.exports = {
     getCommunity: async (req,res) =>{
         try {
             const bookItems = await Books.find().lean().sort({createdAt: -1}).populate({path: 'user', select: 'userName'})
-            console.log(bookItems)
             res.render('community.ejs', {books: bookItems, userName: req.user.userName, user: req.user.id, userId: req.user._id})
         } catch (err) {
             console.log(err)
@@ -56,7 +55,7 @@ module.exports = {
     getFriends: async (req,res) =>{
         try {
             const userItems = await User.find({_id: { $ne: req.user.id}})
-            res.render('friends.ejs', {user: userItems, userName: req.user.userName, friends: req.user.friends})
+            res.render('friends.ejs', {user: userItems, friends: req.user.friends, userName: req.user.names})
         } catch (err) {
             console.log(err)
         }
