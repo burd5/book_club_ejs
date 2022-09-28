@@ -4,6 +4,7 @@ const booksController = require('../controllers/books')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/getBooks', ensureAuth, booksController.getBooks)
+router.post('/filter', booksController.filter)
 router.post('/addBook', booksController.addBook)
 router.post('/addReading', booksController.addReading)
 router.put('/addFriend/:id', booksController.addFriend)

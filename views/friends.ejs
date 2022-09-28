@@ -34,13 +34,13 @@
             <% if(friendArr.includes(user[i]._id)) {%>
                 <form class="col-1" action="books/removeFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
-                <button class="btn btn-friends red lighten-2" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`, displayLength: 1000})">Unfollow</button>
+                <button class="btn btn-friends red lighten-2" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`})">Unfollow</button>
         
                 </form>
             <%} else {%>
             <form class="col-1" action="books/addFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
-            <button class="btn btn-friends light-blue darken-4" type="submit" onclick="M.toast({html: `Now following <%= user[i].userName %>!`, displayLength: 500})">Follow</button>
+            <button class="btn btn-friends light-blue darken-4" type="submit" onclick="M.toast({html: `Now following <%= user[i].userName %>!`})">Follow</button>
 
             </form>
             <% } %>

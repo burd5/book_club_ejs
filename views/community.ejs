@@ -2,9 +2,10 @@
 
 <h1>Community Feed (<%= books.length %>)</h1>
 
-<div class="input-field">
+<!--<div class="input-field">
     <span>Filter: </span>
-    <select>
+    <form action="/books/filter" method="POST">
+    <select class="filterValue" name="filterValue">
         <option value="dateDesc">Date (Newest)</option>
         <option value="dateAsc">Date (Oldest)</option>
         <option value="rateLow">Rating (Low to High)</option>
@@ -13,8 +14,9 @@
         <option value="zToA">Author (Z to A)</option>
         <option value="friends">Friends</option>
     </select>
-    <button class="btn blue-grey darken-1">Submit</button>
-</div>
+    <button class="btn blue-grey darken-1" type="submit">Submit</button>
+    </form>
+</div>-->
 
 <table id="table" class="centered striped responsive-table">
     <thead class="orange lighten-5">

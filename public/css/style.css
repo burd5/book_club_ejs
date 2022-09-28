@@ -190,6 +190,14 @@ td{
 
 /*****    Friends    *****/
 
+.profile-cards{
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
 .friend-card{
     display: flex;
     padding: 10px;
@@ -252,14 +260,6 @@ h3{
 }
 
 /*****    Profile    *****/
-
-.profile-cards{
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
 
 #profile-img{
     width: 200px;

@@ -123,5 +123,16 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
+    },
+    filter: async (req,res)=>{
+        try {
+            let filter = req.body.filterValue
+            const aToZ = await Books.find().lean().sort({title: 'asc'}).populate({path: 'user', select: 'userName'})
+            console.log(filter)
+            console.log('Filtered')
+            res.redirect('/community')
+        } catch (err) {
+            console.log(err)
+        }
     }
 }    
