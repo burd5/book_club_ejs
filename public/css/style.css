@@ -76,6 +76,10 @@ h4{
     background-size: cover;
 }
 
+#login-header{
+    color: black;
+}
+
 /*****   Login Forms   *****/
 
 #title, #author, #rating{
@@ -101,9 +105,8 @@ input::placeholder{
     height: 55px;
     border-radius: 10px;
     font-size: 22px;
-    color: rgb(89,109,121);
     margin-top: 15px;
-    border: 2px solid rgb(89,109,121);
+    border: 2px solid black;
 }
 
 .alert{

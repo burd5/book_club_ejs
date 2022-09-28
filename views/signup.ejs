@@ -14,7 +14,7 @@
     <div class="container login-container">
         <div class="card">
             <div class="card-content">
-                <h3><i class="fa-solid fa-book-open"></i> Sign-Up</h3>
+                <h3 id="login-header"><i class="fa-solid fa-book-open"></i> Sign-Up</h3>
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
                         <div class="alert alert-danger"><%= el.msg %></div>
