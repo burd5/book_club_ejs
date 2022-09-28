@@ -34,7 +34,7 @@
                 <tbody>
                     <tr>
                     <% for(let i=0; i < friends.length; i++) {%>
-                        <td><a class="friends-list" href="profile/<%= friends[i]._id %>"><%= friends[i].userName %></a></td>
+                        <td><a class="friends-list" href="/profile/<%= friends[i].id %>"><%= friends[i].userName %></a></td>
                     </tr>
                     <% } %>
                 </tbody>
