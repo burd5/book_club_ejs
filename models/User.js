@@ -17,9 +17,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     },
   friends: 
-    {
-    type: Array,
-    },
+    [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    }],
   img:
     {
       type: String,

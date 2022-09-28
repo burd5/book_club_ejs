@@ -28,13 +28,15 @@
             <table class="highlight responsive-table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Username</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Friends list currently disabled</td>
+                    <% for(let i=0; i < friends.length; i++) {%>
+                        <td><a class="friends-list" href="profile/<%= friends[i]._id %>"><%= friends[i].userName %></a></td>
                     </tr>
+                    <% } %>
                 </tbody>
             </table>
         </div>

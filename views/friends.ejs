@@ -4,7 +4,7 @@
   <li>
     <div class="collapsible-header"><h1 class="friends-header">Friends (<%= friends.length %>)</h1></div>
     <div class="collapsible-body">
-        <!--<table class="highlight responsive-table">
+        <table class="highlight responsive-table">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -13,11 +13,11 @@
             <tbody>
                 <tr>
                 <% for(let i=0; i < friends.length; i++) {%>
-                    <td><a class="friends-list" href="profile/<%= friends[i]._id %>"><%= friends[i] %></a></td>
+                    <td><a class="friends-list" href="profile/<%= friends[i]._id %>"><%= friends[i].userName %></a></td>
                 </tr>
                 <% } %>
             </tbody>
-        </table>-->
+        </table>
     </div>
 </ul>
     
@@ -31,7 +31,7 @@
             <li><img id="friends-img" src="<%= user[i].img %>"></li>
             <li><a href="/profile/<%= user[i].id %>"><%= user[i].userName %></a></li>
 
-            <% if(friends.includes(user[i].id)) {%>
+            <% if(friendArr.includes(user[i]._id)) {%>
                 <form class="col-1" action="books/removeFriend/<%= user[i]._id %>?_method=PUT" method="POST">
             
                 <button class="btn btn-friends red lighten-2" type="submit" onclick="M.toast({html: `Unfollowed <%= user[i].userName %>!`, displayLength: 1000})">Unfollow</button>

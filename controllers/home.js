@@ -55,7 +55,9 @@ module.exports = {
     getFriends: async (req,res) =>{
         try {
             const userItems = await User.find({_id: { $ne: req.user.id}})
-            res.render('friends.ejs', {user: userItems, friends: req.user.friends, userName: req.user.names})
+            let user = await User.findById({_id: req.user.id}).populate({path: 'friends', select: 'userName'})
+            const arr = user.friends.map(friend => friend._id)
+            res.render('friends.ejs', {user: userItems, friendArr: arr, friends: user.friends, userName: req.user.names})
         } catch (err) {
             console.log(err)
         }
@@ -63,9 +65,10 @@ module.exports = {
     // Renders 'profile.ejs' from Community Feed ('community.ejs')
     getProfile: async (req,res) =>{
         try {
-            const user = await User.findById(req.params.id).populate({path: 'user', select: 'userName'})
+            const userItems = await User.findById(req.params.id)
             const bookItems = await Books.find({user: req.params.id})
-            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id, friends: req.user.friends})
+            let user = await User.findById({_id: req.params.id}).populate({path: 'friends', select: 'userName'})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.names, user: userItems, userId: req.user._id, friends: user.friends})
         } catch (err) {
             console.log(err)
         }
@@ -73,9 +76,10 @@ module.exports = {
     // Renders current users profile ('profile.ejs') from header
     getUserProfile: async (req,res) =>{
         try {
-            const user = await User.findById(req.user.id)
+            const userItems = await User.findById(req.user.id)
             const bookItems = await Books.find({user: req.user.id})
-            res.render('profile.ejs', {books: bookItems, userName: req.user.userName, user: user, userId: req.user._id, friends: req.user.friends})
+            let user = await User.findById({_id: req.user.id}).populate({path: 'friends', select: 'userName'})
+            res.render('profile.ejs', {books: bookItems, userName: req.user.names, user: userItems, userId: req.user._id, friends: user.friends})
         } catch (err) {
             console.log(err)
         }
