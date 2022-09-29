@@ -1,6 +1,6 @@
 <h1>Book Club</h1>
 
-<img src="" alt="gif of webpage" href="https://book-club.onrender.com/">
+<img src="bookclubfinal.gif" alt="gif of webpage" href="https://book-club.onrender.com/">
 
 Book Club is a full stack web application that allows users to catalog their book history. Users can add items to their reading list, see what their friends are reading, and rate their favorite reads. 
 
