@@ -6,7 +6,6 @@ const homeController = require('../controllers/home')
 
 router.get('/', homeController.getIndex)
 router.get('/dashboard', homeController.getDashboard)
-router.get('/profile/profile/:id', homeController.getProfileFromFriends)
 router.get('/profile/:id', homeController.getProfile)
 router.get('/profile', homeController.getUserProfile)
 router.get('/community', homeController.getCommunity)

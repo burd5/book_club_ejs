@@ -73,16 +73,6 @@ module.exports = {
             console.log(err)
         }
     },
-    getProfileFromFriends: async (req,res) =>{
-        try {
-            const userItems = await User.findById(req.params.id)
-            const bookItems = await Books.find({user: req.params.id})
-            let user = await User.findById({_id: req.params.id}).populate({path: 'friends', select: 'userName'})
-            res.redirect('/profile.ejs', {books: bookItems, userName: req.user.names, user: userItems, userId: req.user._id, friends: user.friends})
-        } catch (err) {
-            console.log(err)
-        }
-    },
     // Renders current users profile ('profile.ejs') from header
     getUserProfile: async (req,res) =>{
         try {
