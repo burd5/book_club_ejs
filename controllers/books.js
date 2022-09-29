@@ -33,6 +33,17 @@ module.exports = {
             console.log(err)
         }
     },
+    addToList: async (req, res)=>{
+        try{
+            let book = await Books.findOne({_id: req.params.id})
+            console.log(book)
+            await Books.create({title: book.title, author: book.author, rating: req.body.rating, user: req.user.id, completed: false})
+            console.log('Book has been added!')
+            res.redirect('/readingList')
+        }catch(err){
+            console.log(err)
+        }
+    },
     // Removes book from favorites ('favorites.ejs')
     unFavorite: async (req,res) => {
         try{
@@ -134,5 +145,5 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
-    }
+    },
 }    

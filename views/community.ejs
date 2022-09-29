@@ -26,15 +26,18 @@
             <th>Author</th>
             <th>Date</th>
             <th>Rating</th>
+            <th>Add to List</th>
         </tr>
     </thead>
-        <tr>
+        <tr class="community">
         <% for(let i=0; i < books.length; i++) {%>
             <td><a href="profile/<%= books[i].user._id %>"><%= books[i].user.userName %></a></td>
-            <td><%= books[i].title %></td>
-            <td><%= books[i].author %></td>
+            <form action="books/addToList/<%= books[i]._id %>" method="POST">
+            <td name="title"><%= books[i].title %></td>
+            <td name="author"><%= books[i].author %></td>
             <td><%= books[i].createdAt.toLocaleDateString() %></td>
-            <td><%= books[i].rating %></td>
+            <td name="rating"><%= books[i].rating %></td>
+            <td><button class="btn light-blue darken-4 fa fa-plus" onclick="M.toast({html: 'Added to reading list!'})"></button></form></td>
         </tr>
         <% } %>
 </table>

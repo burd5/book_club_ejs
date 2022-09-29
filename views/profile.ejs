@@ -4,7 +4,7 @@
 <div class="profile-sub-head">
     <h1 class="profile-name"><%= user.userName %></h1>
     <% if(user.id == userId) {%>
-    <i class="modal-trigger btn blue-grey darken-1 fa fa-plus" href="#modal1"></i>
+    <i class="modal-trigger btn blue-grey darken-1 fa fa-plus profile-button" href="#modal1"></i>
     <% } %>
 </div>
 </div>
@@ -34,7 +34,7 @@
                 <tbody>
                     <tr>
                     <% for(let i=0; i < friends.length; i++) {%>
-                        <td><a class="friends-list" href="<%= friends[i].id %>"><%= friends[i].userName %></a></td>
+                        <td><a class="friends-list" href="/profile/<%= friends[i].id %>"><%= friends[i].userName %></a></td>
                     </tr>
                     <% } %>
                 </tbody>

@@ -254,13 +254,7 @@ h3{
 
 /*****   Community    *****/
 
-.pagination{
-    margin-bottom: 50px;
-}
 
-.dropdown-trigger.fa-plus{
-    width: 100%;
-}
 
 /*****    Profile    *****/
 
@@ -295,8 +289,8 @@ h3{
     flex-direction: column;
 }
 
-.fa-plus{
-    width: 20%;
+.profile-button{
+    width: 25%;
     align-self: center;
     border-radius: 25px;
 }
