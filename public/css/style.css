@@ -367,4 +367,17 @@ h3{
     .fa-book-open{
         display: none;
     }
+
+    .modal{
+        width: 95%;
+    }
+
+    #imageUpload{
+        margin-left: 60px;
+        margin-top: 10px;
+    }
+
+    .form-label{
+        margin: 0 auto;
+    }
 }
