@@ -308,10 +308,6 @@ h3{
         width: 100%;
     }
 
-    .brand-logo{
-        vertical-align: middle;
-    }
-
     td{
         padding: 15px;
         font-size: 18px;
@@ -358,12 +354,15 @@ h3{
         margin: 0 auto;
         margin-bottom: 20px;
         margin-top: 10px;
+        width: 80%;
     }
 
     .profile-button{
         margin-bottom: 15px;
     }
 
+    .brand-logo,
+    .book-club,
     .fa-book-open{
         display: none;
     }
