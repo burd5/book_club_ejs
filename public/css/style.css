@@ -298,3 +298,58 @@ h3{
 .profile-collapsible{
     margin-bottom: 50px;
 }
+
+
+/*   Media Queries   */
+
+@media screen and (max-width: 700px){
+
+    .login-container{
+        width: 100%;
+    }
+
+    .brand-logo{
+        vertical-align: middle;
+    }
+
+    td{
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    td:first-child,th:first-child{
+        padding-left: 10px;
+    }
+    
+    td:last-child, th:last-child{
+        padding-right: 10px;
+    }
+
+    .friends{
+        width: 70%;
+    }
+
+    .friends-header{
+       margin: 0 auto;
+    }
+
+    .bookClubUsers{
+        text-align: center
+    }
+
+    .profile-cards{
+        justify-content: center;
+    }
+
+    .profile-header{
+        width: 100%;
+    }
+
+    .profile-img{
+        width: fit-content
+    }
+
+    .profile-name{
+        font-size: 24px
+    }
+}
