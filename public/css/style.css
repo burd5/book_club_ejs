@@ -326,7 +326,7 @@ h3{
     }
 
     .friends{
-        width: 70%;
+        width: 90%;
     }
 
     .friends-header{
@@ -343,13 +343,28 @@ h3{
 
     .profile-header{
         width: 100%;
-    }
-
-    .profile-img{
-        width: fit-content
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .profile-name{
-        font-size: 24px
+        font-size: 20px;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    #profile-img{
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .profile-button{
+        margin-bottom: 15px;
+    }
+
+    .fa-book-open{
+        display: none;
     }
 }
